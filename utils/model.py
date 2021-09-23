@@ -16,23 +16,27 @@ class perceptron:
         self.X = X
         self.y = y
         # here X will have all data
-        x_with_bias = np.c_(self.X,-np.ones(len(self.X),1))
+        x_with_bias = np.c_[self.X,-np.ones((len(self.X),1))]
         logging.info(f"X_with_bias : \n{x_with_bias}")
 
-        for epoch in self.epochs:
+        for epoch in range(self.epochs):
             logging.info("--"*10)
             logging.info(f"For epoch : {epoch}")
             logging.info("--"*10)
             y_hat = self.activationFunction(x_with_bias,self.weights)
             logging.info(f"Predicted value after forward pass :\n {y_hat} ")
             self.error = self.y - y_hat
-            logging.info(f"Error : \h {self.error}")
-            self.weights = self.weights + self.eta * np.dot(x_with_bias.T,self.error)
+            logging.info(f"Error : \n {self.error}")
+            self.weights = self.weights + self.eta * np.dot(x_with_bias.T, self.error)
             logging.info(f"Updated weights after epoch : \n{epoch}/{self.epochs} :\n{self.weights}")
             logging.info("##"*10)
 
     def predict(self,x):
-        x_with_bias = np.c_(x,np.ones(len(x),1))
+        logging.info(f"predict function: Input : {x}")
+        print(f"predict function: Input : {x}")
+        x_with_bias = np.c_[x,-np.ones((len(x),1))]
+        logging.info(f"predict function: x_with_bias : {x_with_bias}")
+        print(f"predict function: x_with_bias : {x_with_bias}")
         z = self.activationFunction(x_with_bias,self.weights)
         return z
 
