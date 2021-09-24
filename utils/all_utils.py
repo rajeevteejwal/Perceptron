@@ -22,7 +22,7 @@ def save_model(model,file_name):
     file_path = os.path.join(model_dir,file_name)
     joblib.dump(model, file_path)
 
-def get_model(file_name):
+def load_model(file_name):
     model_dir = "models"
     model_path = os.path.join(model_dir,file_name)
     model = joblib.load(model_path)
