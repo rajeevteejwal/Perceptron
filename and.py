@@ -1,5 +1,5 @@
 from utils.model import perceptron
-from utils.all_utils import prepare_data, save_model, get_model
+from utils.all_utils import prepare_data, save_model, load_model
 import pandas as pd
 import os
 import logging
@@ -29,6 +29,6 @@ model.fit(x,y)
 save_model(model,"and_model")
 
 #fetch model then predict
-saved_model = get_model("and_model")
+saved_model = load_model("and_model")
 input = np.array([[0,0]])
 print(saved_model.predict(x=input))
