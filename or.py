@@ -31,7 +31,7 @@ if __name__ == '__main__':
         "y": [0,1,1,1]
     }
     ETA = 0.3
-    EPOCHS = 10
+    EPOCHS = 100
     df = pd.DataFrame(OR)
     try:
         main(df,plotName="or.png", eta=ETA,epochs=EPOCHS)
